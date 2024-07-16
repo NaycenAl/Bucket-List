@@ -1,0 +1,44 @@
+/* public/css/app.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(to right, #658765, #407740);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.navbar-menu .navbar-item {
+    color: #fa1b1b;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-menu .navbar-item:hover {
+    background-color: #f8f8f8;
+}
+
+.body{
+    background-color: antiquewhite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer{
+
+    background-color: bisque;
+    height: 30px;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
