@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="card-container">
+        {% for person in content %}
+            <div class="card">
+                <img src="{{ person.picture }}" alt="{{ person.firstname }} {{ person.lastname }}" class="card-img">
+                <div class="card-body">
+                    <h2>{{ person.firstname }} {{ person.lastname }}</h2>
+                    <p><strong>Date of Birth:</strong> {{ person.dateOfBirth }}</p>
+                    <p><strong>Creator of:</strong> {{ person.creatorOf }}</p>
+                    <p>{{ person.description }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+

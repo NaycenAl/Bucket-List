@@ -1,10 +1,21 @@
 /* public/css/app.css */
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: antiquewhite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background: linear-gradient(to right, #658765, #407740);
+    padding: 1rem 2rem;
+    background: linear-gradient(to right, #4caf50, #81c784);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
@@ -17,28 +28,100 @@
     margin-right: 10px;
 }
 
-.navbar-menu .navbar-item {
-    color: #fa1b1b;
+.navbar-brand h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-item {
+    color: white;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    position: relative;
 }
 
-.navbar-menu .navbar-item:hover {
-    background-color: #f8f8f8;
+.navbar-item::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
 }
 
-.body{
+.navbar-item:hover::after {
+    width: 100%;
+}
+
+.body {
+    font-family: 'Roboto', sans-serif;
     background-color: antiquewhite;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 0;
+    margin: 0;
 }
 
-.footer{
-
+.footer {
     background-color: bisque;
     height: 30px;
     text-align: center;
     padding: 1rem;
     margin-top: auto;
+}
+
+/* Card Styles */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.card p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+.card p strong {
+    color: #333;
 }
