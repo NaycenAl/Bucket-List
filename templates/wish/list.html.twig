@@ -1,7 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <ul>
+        {% for wish in wishes %}
+            <li>
+                <a href="">{{ wish.title }}</a>
 
+            </li>
+        {% else %}
+            <li>Aucun wish trouvé.</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
 
 {% block title %}
