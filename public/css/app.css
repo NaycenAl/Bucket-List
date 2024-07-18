@@ -239,7 +239,7 @@ body {
 
 .wish-card {
 
-    background: linear-gradient(to top, rgba(78, 174, 78, 0.27), #ffe6a9);
+    background: linear-gradient(45deg, rgba(78, 174, 78, 0.27), rgba(251, 251, 251, 0.56));
     border: 1px solid #ffcc80;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -282,29 +282,26 @@ body {
 
 /* Container for the entire form */
 .form-container {
-
-    max-width: 900px;
-
+    width: 30%;
     margin: auto;
-    padding: 50px;
-    background-color: #f9f9f9;
+    padding: 60px;
+    background: linear-gradient(45deg, rgba(78, 174, 78, 0.27), rgba(251, 251, 251, 0.56));
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Form heading */
 .form-container h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
 }
 
-/* Form group: individual form elements */
+
 .form-group {
     margin-bottom: 15px;
 }
 
-/* Label styling */
+
 .form-group label {
     display: block;
     margin-bottom: 5px;
@@ -333,7 +330,7 @@ body {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #195119;
+    background: linear-gradient(45deg, #4caf50, #81c784);
     border: none;
     border-radius: 4px;
     color: white;
@@ -343,5 +340,54 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #407740;
+    background: linear-gradient(45deg, #81c784, #4caf50);
+}
+
+/* Styles for wish detail container */
+.wish-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Styles for wish detail */
+.wish-detail {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.wish-detail h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.wish-detail p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #666;
+}
+
+.wish-detail p b {
+    color: #333;
+}
+
+.wish-detail p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .wish-detail {
+        width: 90%;
+    }
 }

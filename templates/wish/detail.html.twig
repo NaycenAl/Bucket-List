@@ -1,25 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="wish-card-container">
-    <div class="wish-card">
-    <ul>
-
-            <li>
-                <h2>{{ wish.title }}</h2>
-                <p>{{ wish.description }}</p>
-                <p> <b>Auteur : </b> {{ wish.author }} </p>
-                <p> <b>Créé le : </b> {{ wish.dateCreated|date('d/m/Y H:i') }}</p>
-            </li>
-
-    </ul>
+    <div class="wish-detail-container">
+        <div class="wish-detail">
+            <h2>{{ wish.title }}</h2>
+            <p>{{ wish.description }}</p>
+            <p><b>Auteur : </b>{{ wish.author }}</p>
+            <p><b>Créé le : </b>{{ wish.dateCreated|date('d/m/Y H:i') }}</p>
+        </div>
     </div>
-</div>
-
 {% endblock %}
-
-{% block title %}
-
-{% endblock %}
-
-
