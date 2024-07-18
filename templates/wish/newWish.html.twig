@@ -1,17 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-
+    Add your wish!
 {% endblock %}
-
 
 {% block body %}
-<div>
-    {{ form(form) }}
+    <div class="form-container">
+        <h1>Mon Formulaire</h1>
 
-</div>
+        {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.title) }}
+        </div>
 
+        <div class="form-group">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.description) }}
+        </div>
 
+        <div class="form-group">
+            {{ form_label(form.author) }}
+            {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.author) }}
+        </div>
 
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Soumettre</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
-
