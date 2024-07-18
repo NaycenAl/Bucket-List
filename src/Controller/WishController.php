@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Wish;
+use App\Form\AddWishType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,4 +49,19 @@ class WishController extends AbstractController
         return $this->render('wish/detail.html.twig',['wish' => $wish] );
     }
 
+    /**
+     *@Route("/newWish" , name ="app_wish_newwish")
+     */
+
+    public function newWish() : Response
+    {
+        $wish = new Wish();
+        $wish->setDateCreated((new \DateTimeImmutable('now')));
+        $wish->setIsPublished(true);
+
+        $form = $this->createForm(AddWishType::class, $wish);
+
+        return $this->render('wish/newWish.html.twig', ['form' => $form->createView()]);
+
+    }
 }
