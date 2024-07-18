@@ -228,3 +228,52 @@ body {
 .login-image img:hover {
     transform: translateY(-10px); /* L'image saute de 10px vers le haut */
 }
+
+.wish-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.wish-card {
+    background-color: #c57900;
+    border: 1px solid #ffcc80;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s;
+}
+
+.wish-card:hover {
+    transform: translateY(-10px);
+}
+
+.wish-card-img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ffcc80;
+}
+
+.wish-card-body {
+    padding: 1rem;
+    background-color: #F5F5F5;
+}
+
+.wish-card-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+    color: #ff6f00;
+}
+
+.wish-card-link {
+    color: #ff6f00;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.wish-card-link:hover {
+    color: #ff8f00;
+}

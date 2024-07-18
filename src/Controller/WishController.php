@@ -40,7 +40,7 @@ class WishController extends AbstractController
 
 
     /**
-     *@Route("/detail/{id}" , name ="_wish")
+     *@Route("/detail/{id}" , name ="_detail_id")
      */
     public function Detail(EntityManagerInterface $entityManager, int $id)
     {
