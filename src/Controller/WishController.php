@@ -66,7 +66,9 @@ class WishController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
             $entityManager->persist($wish);
             $entityManager->flush();
+
             $this->addFlash('success', 'Votre wish a été ajouté avec succès !');
+
             return $this->redirectToRoute('app_wish_list');
         }
 

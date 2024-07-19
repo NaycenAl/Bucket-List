@@ -1,7 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="wish-card-container">
+
+    <div class="wish-card-container ">
+        {% for flash_message in app.flashes('success') %}
+        <div class="alert alert-success custom-alert-success">
+            {{ flash_message }}
+        </div>
+        {% endfor %}
         {% for wish in wishes %}
             <div class="wish-card">
                 <img class="wish-card-img" src="{{ asset('image/star.png') }}" alt="Wish Image">
