@@ -1,10 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="wish-card-container">
+
+    <div class="wish-card-container ">
+        {% for flash_message in app.flashes('success') %}
+        <div class="alert alert-success custom-alert-success">
+            {{ flash_message }}
+        </div>
+        {% endfor %}
         {% for wish in wishes %}
             <div class="wish-card">
-                <img class="wish-card-img" src="{{ asset('image/7F5y.gif') }}" alt="Wish Image">
+                <img class="wish-card-img" src="{{ asset('image/star.png') }}" alt="Wish Image">
                 <div class="wish-card-body">
                     <h2 class="wish-card-title">Souhait {{ wish.id }}</h2>
                     <p><a class="wish-card-link" href="{{ path('app_wish_detail_id', { 'id': wish.id }) }}">Voir le détail</a></p>
