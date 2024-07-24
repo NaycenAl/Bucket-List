@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Wish;
 use App\Form\AddWishType;
+use App\Services\Censuration;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +18,14 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class WishController extends AbstractController
 {
+
+    private $textPurifier;
+    private Censuration $censuration;
+
+    public function __construct(Censuration $censuration)
+    {
+        $this->censuration = $censuration;
+    }
 
     public function index(): Response
     {
@@ -55,7 +65,8 @@ class WishController extends AbstractController
      */
 
     public function newWish(Request $request, EntityManagerInterface $entityManager) : Response
-    {
+    {   $categoryes = new Category();
+
         $wish = new Wish();
         $wish->setDateCreated((new \DateTimeImmutable('now')));
         $wish->setIsPublished(true);
@@ -64,6 +75,11 @@ class WishController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+
+
+            $purifiedText = $this->censuration->purify($wish->getTitle()); //
+            $wish->setTitle($purifiedText);
+
             $entityManager->persist($wish);
             $entityManager->flush();
 
@@ -74,7 +90,9 @@ class WishController extends AbstractController
 
 
 
-        return $this->render('wish/newWish.html.twig', ['form' => $form->createView()]);
+        return $this->render('wish/newWish.html.twig', ['form' => $form->createView(), 'categoryes' => $categoryes]);
 
     }
+
+
 }

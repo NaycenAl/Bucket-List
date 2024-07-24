@@ -7,7 +7,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .navbar {
@@ -104,10 +104,7 @@ body {
     transform: translateY(-10px);
 }
 
-.card-img {
-    width: 100%;
-    height: auto;
-}
+
 
 .card-body {
     padding: 1rem;
@@ -182,21 +179,92 @@ body {
     box-sizing: border-box;
 
 }
+button {
 
-.login-container form button {
-    padding: 0.75rem;
-    background: linear-gradient(45deg, #4caf50, #81c784);
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 1rem;
+    position: relative;
+    width: 250px;
+    padding: 0.8em 1em;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+margin: auto;
     cursor: pointer;
-    transition: background 0.3s;
+    border: none;
+    text-transform: uppercase;
+    background-color: #4eae4e;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    font-family: inherit;
+    z-index: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
-.login-container form button:hover {
-    background: linear-gradient(45deg, #81c784, #4caf50);
+button:hover {
+    animation: sh0 0.5s ease-in-out both;
 }
+
+@keyframes sh0 {
+    0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: rotate(7deg) translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: rotate(-7deg) translate3d(0, 0, 0);
+    }
+
+    75% {
+        transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+}
+
+button:hover span {
+    animation: storm 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+}
+
+button::before,
+button::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0;
+    transition: transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+    z-index: -1;
+    transform: translate(100%, -25%) translate3d(0, 0, 0);
+}
+
+button:hover::before,
+button:hover::after {
+    opacity: 0.15;
+    transition: transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+
+button:hover::before {
+    transform: translate3d(50%, 0, 0) scale(0.9);
+}
+
+button:hover::after {
+    transform: translate(50%, 0) scale(1.1);
+}
+
+
 
 .login-container .register-link {
     margin-top: 1rem;
@@ -326,71 +394,100 @@ body {
     margin-top: 5px;
 }
 
-/* Submit button */
-.btn-primary {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background: linear-gradient(45deg, #4caf50, #81c784);
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    text-align: center;
-}
 
-.btn-primary:hover {
-    background: linear-gradient(45deg, #81c784, #4caf50);
-}
 
 /* Styles for wish detail container */
 .wish-detail-container {
     display: flex;
     justify-content: center;
     align-items: center;
-
-
+  margin-top: auto;
     padding: 20px;
-    box-sizing: border-box;
+    overflow: visible;
+
+
 }
 
-/* Styles for wish detail */
-.wish-detail {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    text-align: left;
+.card {
+    --background: linear-gradient(to right, rgba(25, 81, 25, 0.44) 0%, #4eae4e 100%);
+    width: 600px;
+    height: 600px;
+    padding: 5px;
+    border-radius: 1rem;
+    overflow: visible;
+    background: var(--background);
+    position: relative;
+    z-index: 1;
+    text-align: center;
 }
 
-.wish-detail h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #333;
+.card::before,
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    z-index: -1;
 }
 
-.wish-detail p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #666;
+.card::before {
+    background: linear-gradient(to bottom right, #f6d365 0%, #ffa500 100%);
+    transform: rotate(2deg);
 }
 
-.wish-detail p b {
-    color: #333;
+.card::after {
+    background: linear-gradient(to top right, #84fab0 0%, rgba(78, 174, 78, 0.27) 100%);
+    transform: rotate(-2deg);
 }
 
-.wish-detail p:last-child {
-    margin-bottom: 0;
+.card-info {
+    --color: #292b2c;
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    border-radius: 0.7rem;
+    position: relative;
+    z-index: 2;
+
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .wish-detail {
-        width: 90%;
-    }
+.card .title {
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+.card:hover::before,
+.card:hover::after {
+    opacity: 0;
+}
+
+.card:hover .card-info {
+    color: #00c600;
+    transition: color 1s;
+}
+
+.title-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.wish-info {
+    margin-top: 10px;
+}
+
+.wish-info p {
+    margin: 5px 0;
 }
 
 .custom-alert-success {
@@ -408,4 +505,120 @@ body {
     right: 0;                 /* Align to right */
     z-index: 1000;            /* Ensure it is above other elements */
     text-align: center;       /* Center the text */
+}
+
+
+.heading {
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block; /* Ensure that the span elements align correctly */
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(0, 14, 1); /* Applying text stroke for the heading */
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+
+/* Styling for the hover text effect */
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    color: #39c139;
+    width: 0%;
+    inset: 0;
+    border-right: 6px solid #39c139; /* Adjust border width */
+    overflow: hidden;
+    transition: width 0.5s ease, filter 0.5s ease;
+    -webkit-text-stroke: 1px #39c139; /* Applying text stroke for hover effect */
+}
+
+/* Hover effect */
+.heading:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px #39c139);
+}
+
+
+.light-button button.bt {
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    outline: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.light-button button.bt .button-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 200px;
+    background-color: #ffe6a9;
+    border-radius: 5px;
+    color: #ffe6a9;
+    font-weight: 700;
+    transition: 300ms;
+    outline: #39c139 2px solid;
+    outline-offset: 20;
+}
+
+.light-button button.bt .button-holder svg {
+    height: 50px;
+    fill: #ffe6a9;
+    transition: 300ms;
+}
+
+.light-button button.bt .light-holder {
+    position: absolute;
+    height: 200px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.light-button button.bt .light-holder .dot {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #ffe6a9;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.light-button button.bt .light-holder .light {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    clip-path: polygon(50% 0%, 25% 100%, 75% 100%);
+    background: transparent;
+}
+
+.light-button button.bt:hover .button-holder svg {
+    fill: rgb(88, 132, 242);
+}
+
+.light-button button.bt:hover .button-holder {
+    color: rgb(88, 119, 242);
+    outline: rgb(82, 116, 250) 2px solid;
+    outline-offset: 2px;
+}
+
+.light-button button.bt:hover .light-holder .light {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+            180deg,
+            rgb(88, 124, 242) 0%,
+            rgba(255, 255, 255, 0) 75%,
+            rgba(255, 255, 255, 0) 100%
+    );
 }

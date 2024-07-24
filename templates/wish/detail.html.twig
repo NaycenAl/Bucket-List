@@ -1,12 +1,30 @@
+
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
     <div class="wish-detail-container">
-        <div class="wish-detail">
-            <h2>{{ wish.title }}</h2>
-            <p>{{ wish.description }}</p>
-            <p><b>Auteur : </b>{{ wish.author }}</p>
-            <p><b>Créé le : </b>{{ wish.dateCreated|date('d/m/Y H:i') }}</p>
+
+        <div class="card">
+
+            <div class="card-info">
+                <div class="card-img">
+                {% if wish.category.image is not null %}
+                    <img src="{{ wish.category.image }}" alt="Wish Image" class="wish-image">
+                {% else %}
+                    <img src="{{ asset('image/av.gif') }}" alt="Default Image" class="wish-image">
+                {% endif %}
+                </div>
+                <div class="title-category">
+                    <h2 class="title">{{ wish.title }}</h2>
+                    <h3>{{ wish.category.name }}</h3>
+                </div>
+                <div class="wish-info">
+                    <p>{{ wish.description }}</p>
+                    <p><b>Auteur : </b>{{ wish.author }}</p>
+                    <p><b>Créé le : </b>{{ wish.dateCreated|date('d/m/Y H:i') }}</p>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
