@@ -506,40 +506,51 @@ button:hover::after {
     z-index: 1000;            /* Ensure it is above other elements */
     text-align: center;       /* Center the text */
 }
-
-
+.heading-container {
+    margin : 20px;
+    align-self: center;
+}
 .heading {
     margin: 0;
+    height: auto;
+    background: transparent;
     padding: 0;
-    font-size: 2em;
+    border: none;
+    cursor: default;
 
-    text-transform: uppercase;
-    position: relative;
-    display: inline-block; /* Ensure that the span elements align correctly */
-    color: transparent;
-    -webkit-text-stroke: 1px rgb(0, 14, 1); /* Applying text stroke for the heading */
+    --border-right: 6px;
+    --text-stroke-color: rgb(0, 14, 1);
+    --animation-color: #39c139;
+    --fs-size: 2em;
+
     letter-spacing: 3px;
     text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial", sans-serif;
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
 }
 
-/* Styling for the hover text effect */
+
 .hover-text {
     position: absolute;
     box-sizing: border-box;
-    color: #39c139;
+    color: var(--animation-color);
     width: 0%;
     inset: 0;
-    border-right: 6px solid #39c139; /* Adjust border width */
+    border-right: var(--border-right) solid var(--animation-color);
     overflow: hidden;
     transition: width 0.5s ease, filter 0.5s ease;
-    -webkit-text-stroke: 1px #39c139; /* Applying text stroke for hover effect */
+    -webkit-text-stroke: 1px var(--animation-color);
 }
 
-/* Hover effect */
 .heading:hover .hover-text {
     width: 100%;
-    filter: drop-shadow(0 0 23px #39c139);
+    filter: drop-shadow(0 0 23px var(--animation-color));
 }
+
 
 
 .light-button button.bt {
@@ -621,4 +632,15 @@ button:hover::after {
             rgba(255, 255, 255, 0) 75%,
             rgba(255, 255, 255, 0) 100%
     );
+}
+
+
+.description-container {
+    height: 500px;
+    width: 700px;
+    align-self: center;
+}
+
+.bucket-image {
+    width: 200px;
 }
